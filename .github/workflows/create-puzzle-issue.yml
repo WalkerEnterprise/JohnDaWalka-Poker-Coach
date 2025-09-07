@@ -35,6 +35,9 @@ jobs:
 
       - name: Add sourcery comment
         run: |
-          gh issue comment "${ISSUE_URL}" --body "@sourcery-ai develop - you can read the puzzle statement with \`uv run advent_of_code.py read ${{ inputs.year }} ${{ inputs.day }} ${{ inputs.part }}\`. Run the solution on \`puzzles/year_${{ inputs.year }}/day_${{ inputs.day }}/input.txt\` and write answer to \`puzzles/year_${{ inputs.year }}/day_${{ inputs.day }}/answer_part${{ inputs.part }}.txt\`"
+          gh issue comment "${ISSUE_URL}" --body "@sourcery-ai develop - you can read the puzzle statement with \`uv run advent_of_code.py read $YEAR $DAY $PART\`. Run the solution on \`puzzles/year_${YEAR}/day_${DAY}/input.txt\` and write answer to \`puzzles/year_${YEAR}/day_${DAY}/answer_part${PART}.txt\`"
         env:
           ISSUE_URL: ${{ steps.create-issue.outputs.issue_url }}
+          YEAR: ${{ inputs.year }}
+          DAY: ${{ inputs.day }}
+          PART: ${{ inputs.part }}
