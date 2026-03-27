@@ -10,6 +10,7 @@ import {
   getHistoricalData,
   getVisualElements,
 } from '../api/pokerHandAnalysis';
+import sourceDetection from './modules/sourceDetection';
 
 Vue.use(Vuex);
 
@@ -102,4 +103,7 @@ export default new Vuex.Store({
   mutations,
   actions,
   getters,
+  modules: {
+    sourceDetection,
+  },
 });
